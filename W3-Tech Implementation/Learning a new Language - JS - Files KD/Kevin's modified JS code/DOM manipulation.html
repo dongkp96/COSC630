@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Object Model (DOM) Manipulation</title>
+</head>
+<body>
+    <label for="input">List Item name</label>
+    <input id="input" type="text">
+    <ul>
+        <li>This is some text in a list.</li>
+    </ul>
+    <p id="text">This is some text.</p>  <!-- Paragraph element with an ID -->
+    <button id="textButton">Add Text</button>  <!-- Button element with an ID -->
+
+    <script>
+        // Select the elements by their IDs
+        const text = document.getElementById('text');
+        const button = document.getElementById('textButton');
+
+        // Add an event listener to the button
+        button.addEventListener('click', () => {
+            let textinputted = document.getElementById("input").value;
+            text.textContent = textinputted;  // Change the text content of the paragraph
+
+            /* Kevin's code
+            Added code that allows for the creation of list items and to be appended to the unordered list
+            based on button interaction and user input
+            */
+            const listItem = document.createElement('li');//Created a list item to add on
+            listItem.textContent = textinputted; //Modified the list item's text content to input
+            document.querySelector("ul").appendChild(listItem);//added list item to unordered list
+            document.getElementById("input").value ="";//resets input
+            //End of Kevin's code
+        });
+    </script>
+</body>
+</html>

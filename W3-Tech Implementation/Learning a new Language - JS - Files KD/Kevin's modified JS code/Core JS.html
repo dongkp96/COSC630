@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Core JavaScript</title>
+
+</head>
+<body>
+    <form action="">
+        <label for="name">Name: </label>
+        <input id="name" type="text" required>
+        <label for="age">Age:</label>
+        <input id="age"type="number" max="120">
+        <input class ="submit" type="submit">
+    </form> 
+    <div class = "examples">
+        <h2>Core JavaScript Examples</h2>
+        <p id="greeting"></p>
+        <p id="message"></p>
+        <p id="loop"></p>
+        <p id="conditional"></p>
+        <button class="retry">Retry</button>
+    </div>
+
+
+    <script>
+        //Kevin's code
+
+        //function declaration
+        function greet(name){
+            document.querySelector("#greeting").textContent = `Hello ${name}! Nice to meet you.`;
+        };
+
+        function displayDecades(age){
+            let numberOfDecades = 0; // let variable declaration with integer being assigned
+            const message = document.querySelector("#message");
+
+            if(age % 10 > 0){ //Checks if age is divisible by 10
+                let remainder = age % 10;
+                age = age - remainder;
+
+                //Loop usage to find how many decades they have lived
+                for(let i = 0; i < age; i+=10){
+                    numberOfDecades++;
+                }
+                //Conditional for function
+                if(numberOfDecades < 1){ // checks if they are under age 10
+                    message.textContent = `Wow you have not lived a decade`; 
+                }else if(numberOfDecades < 2){ //checks if they only have lived 1 decade
+                    message.textContent = `Wow you have only lived ${numberOfDecades} decade`; 
+                }else{ 
+                    message.textContent = `Wow you have lived ${numberOfDecades} decades`; 
+                }                
+            }else{//This else block is used when user's age is divisible by 10 evenly
+
+                //Loop usage to find how many decades they have lived
+                for(let i = 0; i < age; i+=10){
+
+                    numberOfDecades++;
+                }
+                //Conditional for function
+                if(numberOfDecades < 2){
+                    message.textContent = `Wow you have only lived ${numberOfDecades} decade`;  
+                }else{
+                    message.textContent = `Wow you have lived ${numberOfDecades} decades`; 
+                }                
+            }
+        }
+
+        //Constant variable declaration
+        const subtmitBtn = document.querySelector(".submit");//Selects the submit button
+        const retryBtn = document.querySelector(".retry");//selects the retry button
+
+        subtmitBtn.addEventListener("click", (e)=>{
+            e.preventDefault();
+
+            let name = document.querySelector("#name").value; //Saves the input from name input as a variable
+            let age = Number(document.querySelector("#age").value);//Saves the input from age input as a variable
+
+            document.querySelector("#name").value = ""; //Sets input back to nothing
+            document.querySelector("#age").value = "";//Sets input back to nothing
+
+            greet(name);
+            displayDecades(age);
+
+        });
+
+        retryBtn.addEventListener("click", (e)=>{
+            //Retry button to erase messages and greeting
+            e.preventDefault();
+            document.querySelector("#greeting").textContent = "";
+            document.querySelector("#message").textContent = "";
+        })
+
+        //End of Kevin's Code
+
+        /*Original Code by Dr Flinn. 
+
+        // Variables
+        let message = "Hello, World!";  // Declare a variable and assign a string value
+        document.getElementById('message').textContent = message;  // Output the variable to the DOM
+
+        // Data Types
+        let number = 42;  // Declare a number
+        let isTrue = true;  // Declare a boolean
+
+        // Functions
+
+        function greet(name) {  // Declare a function with a parameter
+            return `Hello, ${name}!`;  // Return a string using template literals
+        }
+        document.getElementById('greeting').textContent = greet("Alice");  // Output the function result to the DOM
+        
+
+        // Loops
+        let loopResult = '';
+        for (let i = 0; i < 3; i++) {  // Loop 3 times
+            loopResult += i + ' ';  // Concatenate the current loop index
+        }
+        document.getElementById('loop').textContent = loopResult;  // Output the loop result to the DOM
+
+        // Conditionals
+        if (isTrue) {  // Check if the boolean is true
+            document.getElementById('conditional').textContent = "It's true!";  // Output if true
+        } else {
+            document.getElementById('conditional').textContent = "It's false!";  // Output if false
+        }*/
+    </script>
+</body>
+</html>

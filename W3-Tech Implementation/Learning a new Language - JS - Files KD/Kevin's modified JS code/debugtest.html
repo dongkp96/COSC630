@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debugging</title>
+</head>
+<body>
+    <h2>Debugging Example</h2>
+    <p id="result"></p>
+
+    <h2>Kevin's debugging example</h2>
+    <p id="count"></p>
+    <p id="result2"></p>
+    <script>
+
+        /*Kevin's Code
+        Used a loop to check each iteration of 2 to the power of each increment to 
+        double check if the math is correct
+        */
+        function powerOf2Counter(a){
+            for(let i = 0; i <= a; i++){
+                let b = 2**i;
+                document.getElementById("count").textContent += ` 2 to the power of ${i} =  ${b} || `;
+            }
+            return 2**a;
+        }
+        //Kevin's code: calls the function and stores the return result then shows the output.
+        const result2 = powerOf2Counter(4);
+        document.getElementById("result2").textContent = result2;
+
+        //End of Kevin's code
+
+        // Function to calculate the sum of two numbers
+        function calculateSum(a, b) {
+            document.getElementById('result').textContent += `Calculating sum of ${a} and ${b}\n`;  // Debug message
+            return a + b;  // Return the sum
+        }
+
+        const result = calculateSum(10, 10);  // Call the function
+        document.getElementById('result').textContent += `Result: ${result}`; // Output the result
+    </script>
+</body>
+</html>

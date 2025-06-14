@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Interaction</title>
+
+    <style>
+        body{
+            width:100vw;
+            height:100vh;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            text-align:center;
+            font-size:2rem;
+            font-weight:700;
+        }
+    </style>
+</head>
+<body>
+    <p id="joke">Loading joke...</p>  <!-- Paragraph element to display the joke -->
+
+    <script>
+        // Fetch data from an API
+        const body = document.querySelector("body");
+        body.addEventListener("click", ()=>{ //Makes the body responsive so that it will listen to an event
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(response => response.json())  // Parse the response as JSON
+                .then(data => {
+                    document.getElementById('joke').textContent = data.value;  // Display the fetched joke
+                })
+                .catch(error => {
+                    document.getElementById('joke').textContent = 'Failed to load joke';  // Handle errors
+                });           
+        })
+    </script>
+</body>
+</html>

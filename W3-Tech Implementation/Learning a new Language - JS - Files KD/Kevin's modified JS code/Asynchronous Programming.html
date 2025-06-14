@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asynchronous Programming</title>
+</head>
+<body>
+    <h2>Chuck Norris Joke Fetcher</h2>
+    <p id="data">Loading...</p>  <!-- Paragraph element to display data -->
+    <button id="fetchButton">Fetch New Joke</button>  <!-- Button to fetch new data -->
+    <button id="previous">Previous Joke</button><!--Added previous joke button to preview previous joke-->
+
+    <script>
+        const jokeArray = [];//Array for jokes
+        let jokeCounter = 1; //Joke counter begins at 1 because this page calls fetchData() immediately upon rendering the script
+
+        // Function to fetch data from an API
+        async function fetchData() {
+            try {
+                const response = await fetch('https://api.chucknorris.io/jokes/random');  // Fetch data from the API
+                const data = await response.json();  // Parse the response as JSON
+                jokeArray.push(data.value); // Adds joke to an array
+                document.getElementById('data').textContent = data.value;  // Display the fetched data
+            } catch (error) {
+                document.getElementById('data').textContent = 'Failed to load data';  // Handle errors
+            }
+        }
+
+        // Initial fetch when the page loads
+        fetchData();
+
+        // Select the button element by its ID
+        const fetchButton = document.getElementById('fetchButton');
+
+        // Add an event listener to the button
+        fetchButton.addEventListener('click', () => {
+            document.getElementById('data').textContent = 'Loading...';  // Show loading message
+            fetchData();  // Fetch new data
+            jokeCounter++; //increments joke when new joke is called
+        });
+
+        //Selects the button with ID = previous and then assigns event handler to show previous joke once before on the text
+        const previousBtn = document.getElementById("previous");
+        previousBtn.addEventListener("click", ()=>{
+            if(jokeCounter > 1){
+                document.getElementById('data').textContent = jokeArray[jokeCounter-2];
+            }else{
+                document.getElementById('data').textContent = "No previous joke";
+            }
+        });
+
+
+    </script>
+</body>
+</html>

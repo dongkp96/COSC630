@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handling</title>
+
+    <style>
+        .container{
+            padding:20px;
+            border:5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <button id="clickButton">Click Me</button>  <!-- Button element with an ID -->
+    <p id="output"></p>  <!-- Paragraph element to display output -->
+
+    <div class = "container">
+        <button id="Red">Red</button>
+        <button id="Blue">Blue</button>
+        <button id="Green">Green</button>
+    </div>
+    <script>
+        /* Kevin's code
+        Creates 3 buttons (red, blue, green) with event listeners that handles the click event and when they are
+        clicked then it changes the background of the div with class container to that specific background color.
+        */
+        const redBtn = document.getElementById("Red");
+        const blueBtn = document.getElementById("Blue");
+        const greenBtn = document.getElementById("Green");
+
+        const container = document.querySelector(".container");
+
+        redBtn.addEventListener("click", ()=>{
+            container.style.backgroundColor= "red";
+
+        })
+        blueBtn.addEventListener("click", ()=>{
+            container.style.backgroundColor= "blue";
+        })
+        greenBtn.addEventListener("click", ()=>{
+            container.style.backgroundColor= "green";
+        })
+        //End of Kevin's code
+
+        // Select the button and output elements by their IDs
+        const button = document.getElementById('clickButton');
+        const output = document.getElementById('output');
+
+        // Add an event listener to the button
+        button.addEventListener('click', () => {
+            output.textContent = 'Hello Class!';  // Change the text content of the output paragraph
+        });
+    </script>
+</body>
+</html>

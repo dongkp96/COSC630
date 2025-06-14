@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/index.css">
+    <title>Document</title>
+
+    <style>
+        h1{
+            font-size:16px;
+            font-weight:900;
+        }
+        
+    </style>    
+</head>
+
+
+<body>
+    <main>
+        <!--- http://itec315.frostburg.edu/users/mflinn/630/handler.php -->
+        <form action="http://mflinn.loginto.me:7780/MyRoot/handler.php" method ="post">
+            <h1 style="font-size: 2rem;">COSC 630: Basic Info Form</h1>
+            <div class="flex-row">
+                <div class="flex-column name-container">
+                    <label for="firstName">First Name:</label>
+                    <input id="firstName" type="text" name="firstName" placeholder="John">
+                </div>
+                <div class="flex-column name-container">
+                    <label for="lastName">Last name:</label>
+                    <input id="lastName" type="text" name="lastName" placeholder="Doe" required>    
+                </div>     
+            </div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="123 Info Street"required="required">
+            <div class="flex-row">
+                <div class="flex-column">
+                   <label for="city">City:</label>
+                   <input id="city "type="text" name="city" placeholder="New York City" required="required">         
+                </div>
+                <div class="flex-column">
+                   <label for="state">State:</label>
+                   <input id="state" type="text" name="state" placeholder="New York"required="required">  
+                </div>
+                <div class="flex-column">
+                    <label for="zipcode">Zipcode:</label>
+                    <input id="zipcode" name ="zipcode" placeholder="123456" type="text" required="required">
+                </div>
+            </div>
+            <div>
+                <p>Favorite Day of the Week:</p>
+                <label><input type="radio" name="favoriteDay" value="Monday">Monday</label>
+                <label><input type="radio" name="favoriteDay" value="Tuesday">Tuesday</label>
+                <label><input type="radio" name="favoriteDay" value="Wednesday">Wednesday</label>
+                <label><input type="radio" name="favoriteDay" value="Thursday">Thursday</label>
+                <label><input type="radio" name="favoriteDay" value="Friday">Friday</label>
+                <label><input type="radio" name="favoriteDay" value="Saturday" checked>Saturday</label>
+                <label><input type="radio" name="favoriteDay" value="Sunday">Sunday</label>
+            </div>
+
+            <p>What is Your Favorite
+                <select name="favoriteColor" id="favoriteColor" required>
+                    <option selected>Color</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="indigo">Indigo</option>
+                    <option value="violet">Violet</option>
+                </select> in ROYGBIV? 
+            </p>
+            <div class="table-container">
+                <table style="color:black;">
+                    <tr>
+                        <th>Color Name</th>
+                        <th>Color</th>
+                    </tr>
+                    <tr>
+                    <td>Red</td>
+                    <td style="background-color: red"></td>  
+                    </tr>
+                    <tr>
+                        <td>Orange</td>
+                        <td style="background-color:orange"></td>
+                    </tr>
+                    <tr>
+                        <td>Yellow</td>
+                        <td style="background-color: yellow"></td>
+                    </tr>
+                    <tr>
+                        <td>Green</td>
+                        <td style="background-color:green"></td>
+                    </tr>
+                    <tr>
+                        <td>Blue</td>
+                        <td style="background-color:blue"></td>
+                    </tr>
+                    <tr>
+                    <td>Indigo</td>
+                    <td style="background-color:indigo"></td>  
+                    </tr>
+                    <tr>
+                        <td>Violet</td>
+                        <td style="background-color:violet"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <label for="number">What is your favorite number?</label>
+                <input id="number" name="number" placeholder ="17" type="number" required>
+            </div>
+
+            <div class="image">
+                <p>This is me with my girlfriend in Kyoto Japan circa 2023</p>
+                <img src="assets/KD&EH.jpg" alt="Kevin and his girlfriend in Kyoto Japan">
+            </div>
+            <input id="button" type="submit">
+        </form>
+    </main>
+</body>
+</html>
